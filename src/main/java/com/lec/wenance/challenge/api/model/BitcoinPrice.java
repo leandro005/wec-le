@@ -11,8 +11,6 @@ import lombok.Data;
 @Data
 public class BitcoinPrice {
 	
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-	
 	public BitcoinPrice(CEXLastPrice dto) {
 		this.price = dto.getLprice();
 		this.timestamp = new Date().getTime() ;

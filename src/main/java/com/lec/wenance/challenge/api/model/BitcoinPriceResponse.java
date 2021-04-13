@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class BitcoinPriceResponse {
 	
-	String data;
+	String precio;
 	String message;
 	
 }

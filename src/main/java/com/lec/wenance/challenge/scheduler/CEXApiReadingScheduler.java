@@ -15,9 +15,9 @@ import com.lec.wenance.challenge.scheduler.dto.CEXLastPrice;
 import com.lec.wenance.challenge.scheduler.services.CEXLastPriceService;
 
 @Component
-public class ApiReadingScheduler {
+public class CEXApiReadingScheduler {
 	
-	private static final Logger log = LoggerFactory.getLogger(ApiReadingScheduler.class); 
+	private static final Logger log = LoggerFactory.getLogger(CEXApiReadingScheduler.class); 
 	
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	
@@ -40,7 +40,5 @@ public class ApiReadingScheduler {
 		bitcoinRepository.insertBitcoinPrice(new BitcoinPrice(cexLastPriceResponse));
 		
     }
-	
-	
 	 
 }
