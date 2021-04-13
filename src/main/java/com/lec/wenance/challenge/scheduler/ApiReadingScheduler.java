@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.lec.wenance.challenge.scheduler.reponse.CEXLastPriceResponse;
+import com.lec.wenance.challenge.api.model.BitcoinPrice;
+import com.lec.wenance.challenge.api.repository.BitcoinRepository;
+import com.lec.wenance.challenge.scheduler.dto.CEXLastPrice;
 import com.lec.wenance.challenge.scheduler.services.CEXLastPriceService;
 
 @Component
@@ -22,15 +24,23 @@ public class ApiReadingScheduler {
 	@Autowired
 	private CEXLastPriceService cexLastPriceService;
 		
-	@Scheduled(fixedDelay = 1000 )
+	@Autowired
+	private BitcoinRepository bitcoinRepository;
+	
+	@Scheduled(fixedDelay = 10000 )
     public void scheduled() {
 		
-		CEXLastPriceResponse cexLastPriceResponse = cexLastPriceService.getCEXLastPriceResponse();
+		CEXLastPrice cexLastPriceResponse = cexLastPriceService.getCEXLastPriceResponse();
 		log.info("CEXLastPriceResponse ->>>  lprice: {}, curr1: {}, curr2: {}, date: {}.",
 				cexLastPriceResponse.getLprice(),
 				cexLastPriceResponse.getCurr1(),
 				cexLastPriceResponse.getCurr2(),
-				dateFormat.format(new Date()));
+				dateFormat.format(new Date().getTime()) );
+		
+		bitcoinRepository.insertBitcoinPrice(new BitcoinPrice(cexLastPriceResponse));
+		
     }
+	
+	
 	 
 }

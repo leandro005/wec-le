@@ -1,11 +1,11 @@
-package com.lec.wenance.challenge.scheduler.reponse;
+package com.lec.wenance.challenge.scheduler.dto;
 
 import java.math.BigDecimal;
 
 import lombok.Data;
 
 @Data
-public class CEXLastPriceResponse {
+public class CEXLastPrice {
 	
 	private BigDecimal lprice;
 	private String curr1;
