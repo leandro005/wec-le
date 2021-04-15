@@ -38,39 +38,39 @@ Para levantar la aplicacion podemos:
 
 * Para obneter el precio en un timestamp:
 
-/wcl/priceByTimestamp/{timestamp}    
+	/wcl/priceByTimestamp/{timestamp}    
 
-Ejemplo:
+	Ejemplo:
 
-```
-http://localhost:8080/wcl/priceByTimestamp/2021-04-14 20:46:48
-```
+	```
+	http://localhost:8080/wcl/priceByTimestamp/2021-04-14 20:46:48
+	```
 
-Respuesta:
+	Respuesta:
 
-```
-{"precio":"63102.9","message":"OK con la busqueda"}
-```
+	```
+	{"precio":"63102.9","message":"OK con la busqueda"}
+	```
 
 
 
 * Para obneter el precio en un timestamp:
 
-/wcl/averageAndDiffPrice/{timestamp1}/{timestamp2}
+	/wcl/averageAndDiffPrice/{timestamp1}/{timestamp2}
 
-Ejemplo:
+	Ejemplo:
 
-```
-http://localhost:8080/wcl/averageAndDiffPrice/2021-04-14 21:31:58/2021-04-14 21:49:08
-```
+	```
+	http://localhost:8080/wcl/averageAndDiffPrice/2021-04-14 21:31:58/2021-04-14 21:49:08
+	```
 
-Respuesta:
+	Respuesta:
 
-```
-{"average":"63161.45384615385","percentage":"0.040429445686855164","message":"OK - Se recuperaron el promedio y el porcentaje"}
-```
+	```
+	{"average":"63161.45384615385","percentage":"0.040429445686855164","message":"OK - Se recuperaron el promedio y el porcentaje"}
+	```
 
-Donde el formato de los timestamp es ->  yyyy-MM-dd mm:ss:SS
+Donde el formato de los timestamp es ->  yyyy-MM-dd hh:mm:ss
 
 
 
