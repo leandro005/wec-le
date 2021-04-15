@@ -10,13 +10,14 @@
 	</parent>
 	<groupId>com.lec.wenance</groupId>
 	<artifactId>challenge</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>challenge</name>
 	<description>Challenge para Wenance</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

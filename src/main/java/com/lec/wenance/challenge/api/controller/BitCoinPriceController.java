@@ -37,10 +37,15 @@ public class BitCoinPriceController {
 			restResponse.setPrecio(bitcoinPrice.getPrice().toString());
 			restResponse.setMessage("OK con la busqueda");
 		} catch (EntityNotFoundException e) {
-			log.error("Error al intentar recuperar el precio: ", e.getMessage() );
+			log.error("Error al intentar recuperar el precio: ", e );
 			restResponse.setPrecio("");
 			restResponse.setMessage(e.getMessage());
 			return new ResponseEntity<BitcoinPriceResponse>(restResponse, HttpStatus.NOT_FOUND);
+		} catch (IllegalArgumentException e) {
+			log.error("Error al intentar recuperar el precio: ", e );
+			restResponse.setPrecio("");
+			restResponse.setMessage("Los datos de entrada son incorrectos");
+			return new ResponseEntity<BitcoinPriceResponse>(restResponse, HttpStatus.BAD_REQUEST);	
 		} catch (Exception e) {
 			log.error("Error al intentar recuperar el precio: ", e );
 			restResponse.setPrecio("");
@@ -55,18 +60,25 @@ public class BitCoinPriceController {
 			 @PathVariable String timeTo){
 		BitcoinAveragePercentageResponse averageAndPercentDiffResponse = new BitcoinAveragePercentageResponse();
 		try {
+			//Formateamos las fechas
 			long timeFromLong = Timestamp.valueOf(timeFrom).getTime(); 
 			long timeToLong = Timestamp.valueOf(timeTo).getTime();
+			//Lanzamos llamada al metodo que recupera el promedio
 			double average = bitcoinRepository.findBitcoinAvergePriceByPeriod(Long.valueOf(timeFromLong).longValue(), 
 					Long.valueOf(timeToLong).longValue());
+			//Lanzamos llamada al metodo que recupera la diferencia porcentual			
 			double percentage = bitcoinRepository.findPercentageDifference(average);
 			averageAndPercentDiffResponse.setAverage(String.valueOf(average));
 			averageAndPercentDiffResponse.setPercentage(String.valueOf(percentage));
 			averageAndPercentDiffResponse.setMessage("OK - Se recuperaron el promedio y el porcentaje");
 		} catch (EntityNotFoundException e) {
-			log.error("Error al intentar recuperar el precio: ", e.getMessage() );
+			log.error("Error al intentar recuperar el precio: ", e );
 			averageAndPercentDiffResponse.setMessage(e.getMessage());
 			return new ResponseEntity<BitcoinAveragePercentageResponse>(averageAndPercentDiffResponse, HttpStatus.NOT_FOUND);
+		} catch (IllegalArgumentException e) {
+			log.error("Error al intentar recuperar el precio: ", e );
+			averageAndPercentDiffResponse.setMessage("Los datos de entrada son incorrectos");
+			return new ResponseEntity<BitcoinAveragePercentageResponse>(averageAndPercentDiffResponse, HttpStatus.BAD_REQUEST);	
 		} catch (Exception e) {
 			log.error("Error al intentar recuperar el precio: ", e );
 			averageAndPercentDiffResponse.setMessage(e.getMessage());

@@ -11,13 +11,12 @@ import lombok.Data;
 @Data
 public class BitcoinPrice {
 	
+	private long timestamp;
+	private BigDecimal price; 
+	
 	public BitcoinPrice(CEXLastPrice dto) {
 		this.price = dto.getLprice();
 		this.timestamp = new Date().getTime() ;
 	}
-	
-	private long timestamp;
-	private BigDecimal price; 
-	
 	
 }
