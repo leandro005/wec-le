@@ -1,0 +1,9 @@
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\api\repository\BitcoinRepository.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\scheduler\ApiReadingScheduler.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\scheduler\dto\CEXLastPrice.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\scheduler\services\CEXLastPriceService.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\api\model\BitcoinPrice.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\api\controller\BitCoinPriceController.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\api\model\BitcoinPriceResponse.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\api\services\BitcoinPriceService.java
+C:\wenance-repo\src\main\java\com\lec\wenance\challenge\ChallengeApplication.java

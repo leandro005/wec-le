@@ -1,0 +1,9 @@
+com\lec\wenance\challenge\api\repository\BitcoinRepository.class
+com\lec\wenance\challenge\api\services\BitcoinPriceService.class
+com\lec\wenance\challenge\api\controller\BitCoinPriceController.class
+com\lec\wenance\challenge\api\model\BitcoinPrice.class
+com\lec\wenance\challenge\scheduler\dto\CEXLastPrice.class
+com\lec\wenance\challenge\ChallengeApplication.class
+com\lec\wenance\challenge\scheduler\ApiReadingScheduler.class
+com\lec\wenance\challenge\api\model\BitcoinPriceResponse.class
+com\lec\wenance\challenge\scheduler\services\CEXLastPriceService.class
